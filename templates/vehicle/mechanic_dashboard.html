@@ -1,0 +1,132 @@
+{% extends 'vehicle/mechanicbase.html' %}
+{% load static %}
+{% block content %}
+
+	<!-- main content -->
+	<div class="wrapper">
+
+	<head>
+			<style>
+				/* Brand Slider */
+    .brand-slider {
+      width: 100%;
+      overflow: hidden;
+      padding: 20px 0;
+      margin: 30px 0;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .brand-track {
+      display: flex;
+      width: calc(200%);
+      animation: scrollRight 30s linear infinite;
+    }
+
+    .brand-track img {
+      width: 120px;
+      height: 80px;
+      margin: 0 30px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .brand-track img:hover {
+      transform: scale(1.2);
+    }
+
+    @keyframes scrollRight {
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    
+			</style>
+		</head>
+
+<!-- ****** cards start ********** -->
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="counter bg-primary">
+					<p>
+						<i class="fas fa-tasks"></i>
+					</p>
+					<h3>{{new_work_assigned}}</h3>
+					<p>New Work Assigned</p>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="counter bg-danger">
+					<p>
+						<i class="fas fa-spinner"></i>
+					</p>
+					<h3>{{work_in_progress}}</h3>
+					<p>Work In Progress</p>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="counter bg-warning">
+					<p>
+						<i class="fas fa-check-circle"></i>
+					</p>
+					<h3>{{work_completed}}</h3>
+					<p>Work Completed</p>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="counter bg-success">
+					<p>
+						<i class="fas fa-dollar-sign"></i>
+					</p>
+					<h3>{{salary}}</h3>
+					<p>Salary</p>
+				</div>
+			</div>
+		</div><br><br><br><br>
+
+				<!-- Continuous Brand Slider -->
+  <div class="brand-slider">
+    <div class="brand-track">
+      <img src="{% static 'images/ferrari.png' %}" alt="ferrari">
+      <img src="{% static 'images/ford.png' %}" alt="ford">
+      <img src="{% static 'images/lambo.png' %}" alt="lambo">
+      <img src="{% static 'images/mahindra.png' %}" alt="mahindra">
+      <img src="{% static 'images/tvs.png' %}" alt="tvs">
+      <img src="{% static 'images/tata.png' %}" alt="tata">
+      <img src="{% static 'images/hero.png' %}" alt="hero">
+      <img src="{% static 'images/rolls.png' %}" alt="rolls">
+      <img src="{% static 'images/suzuki.png' %}" alt="suzuki">
+      <!-- duplicate for seamless scroll -->
+      <img src="{% static 'images/ferrari.png' %}" alt="ferrari">
+      <img src="{% static 'images/ford.png' %}" alt="ford">
+      <img src="{% static 'images/lambo.png' %}" alt="lambo">
+      <img src="{% static 'images/mahindra.png' %}" alt="mahindra">
+      <img src="{% static 'images/tvs.png' %}" alt="tvs">
+      <img src="{% static 'images/tata.png' %}" alt="tata">
+      <img src="{% static 'images/hero.png' %}" alt="hero">
+      <img src="{% static 'images/rolls.png' %}" alt="rolls">
+      <img src="{% static 'images/suzuki.png' %}" alt="suzuki">
+    </div>
+  </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- ****** cards end ********** -->
+</div>
+	<!-- end main content -->
+{% endblock content %}

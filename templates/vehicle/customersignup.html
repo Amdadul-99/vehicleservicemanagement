@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .signup-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 0;
+        }
+
+        .signup-card {
+            width: 420px;
+            padding: 35px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            text-align: center;
+            color: white;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .signup-card h1 {
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .signup-card p {
+            font-size: 13px;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .signup-card input {
+            width: 100%;
+            padding: 10px 14px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .signup-card input::placeholder {
+            color: #ccc;
+        }
+
+        .signup-card input:focus {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .signup-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* File input special */
+        input[type="file"] {
+            background: rgba(255,255,255,0.2);
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .signup-card {
+                width: 90%;
+                padding: 25px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+{% include "vehicle/navbar.html" %}
+
+<div class="signup-wrapper">
+    <form class="signup-card" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h1>Create Account</h1>
+        <p>Please enter your details to create account!</p>
+
+        {% render_field userForm.first_name placeholder="First Name" %}
+        {% render_field userForm.last_name placeholder="Last Name" %}
+        {% render_field userForm.username placeholder="Username" %}
+        {% render_field userForm.password placeholder="Password" %}
+        {% render_field customerForm.address placeholder="Address" %}
+        {% render_field customerForm.mobile placeholder="Mobile" %}
+        {% render_field customerForm.profile_pic %}
+
+        <button type="submit" class="signup-btn">Create Account</button>
+
+    </form>
+</div>
+
+{% include "vehicle/footer.html" %}
+
+</body>
+</html>
